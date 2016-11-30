@@ -1,2 +1,2 @@
 # webapp
-Texas Guadaloop webapp for data communication 
+Wep application for monitoring sensor data from Guadaloop Hyperloop Pod.

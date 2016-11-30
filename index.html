@@ -3,6 +3,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Guadaloop</title>
+    <link rel="icon" 
+      type="image/png" 
+      href="../logo.png">
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -34,9 +37,53 @@
         position: absolute;
         top:15%;
     }
+
+    .custom-nav {
+        margin-bottom: 0;
+        background-color: #2B2929;
+        border-color: #3C3A3A;
+        overflow-x: hidden;
+    }
+
+    body {
+        font-size: 20px;
+    }
+
+    .content {
+        margin: 0 0 0 0;
+    }
+
+.sidenav {
+    height: 100%;
+    width:15%;
+    position: fixed !important;
+    z-index: 1;
+    overflow-x: hidden;
+    font-size: 20px;
+    background-color: #2B2929;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    position: center;
+    text-decoration: none;
+    color: #636363;
+    display: block;
+
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+
+
+
 </style>
     <!-- navbar -->
-    <nav class="navbar navbar-inverse">
+    <nav class="custom-nav navbar navbar-static-top">
         <div class="container-fluid">
             <!-- logo -->
             <div class="navbar-header">
@@ -47,14 +94,24 @@
             </div>
         </div><!-- /.container-fluid -->
     </nav><!-- /.navbar -->
+    <div class="content">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="sidenav">
+                  <a href="#">About</a>
+                  <a href="#">Services</a>
+                  <a href="#">Clients</a>
+                  <a href="#">Contact</a>
+                </div>
+            </div> 
+            <div class="col-md-6"> 
+                <div class="row">
 
+                </div>
+            </div>
 
-    <div id="container">
-
+        </div>
     </div>
-
-
-
 </body>
 
 </html>
