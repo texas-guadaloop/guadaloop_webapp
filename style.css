@@ -1,0 +1,59 @@
+    * {
+        border-radius: 0 !important;
+        }
+    #logo {
+        max-width:32px;
+        height: auto;
+        position: relative;
+        top: -20%;
+    }
+
+    #logo-text {
+        color: white; 
+        font-size:20px; 
+        font-weight: bolder;
+        position: absolute;
+        top:15%;
+    }
+
+    .custom-nav {
+        margin-bottom: 0;
+        background-color: #2B2929;
+        border-color: #3C3A3A;
+        overflow-x: hidden;
+    }
+
+    body {
+        font-size: 20px;
+        background-color: #333;
+
+    }
+
+    .content {
+        margin: 20px 20px 20px 20px;
+    }
+
+.sidenav {
+    height: 100%;
+    width:15%;
+    position: fixed !important;
+    z-index: 1;
+    overflow-x: hidden;
+    font-size: 20px;
+    background-color: #2B2929;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    position: center;
+    text-decoration: none;
+    color: #636363;
+    display: block;
+
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}

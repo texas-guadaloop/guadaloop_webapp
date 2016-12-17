@@ -15,73 +15,14 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <script src="custom.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-<style>
-    * {
-        border-radius: 0 !important;
-        }
-    #logo {
-        max-width:32px;
-        height: auto;
-        position: relative;
-        top: -20%;
-    }
-
-    #logo-text {
-        color: white; 
-        font-size:20px; 
-        font-weight: bolder;
-        position: absolute;
-        top:15%;
-    }
-
-    .custom-nav {
-        margin-bottom: 0;
-        background-color: #2B2929;
-        border-color: #3C3A3A;
-        overflow-x: hidden;
-    }
-
-    body {
-        font-size: 20px;
-    }
-
-    .content {
-        margin: 0 0 0 0;
-    }
-
-.sidenav {
-    height: 100%;
-    width:15%;
-    position: fixed !important;
-    z-index: 1;
-    overflow-x: hidden;
-    font-size: 20px;
-    background-color: #2B2929;
-    padding-top: 20px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    position: center;
-    text-decoration: none;
-    color: #636363;
-    display: block;
-
-    transition: 0.3s
-}
-
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-
-
-
-
-</style>
     <!-- navbar -->
     <nav class="custom-nav navbar navbar-static-top">
         <div class="container-fluid">
@@ -96,20 +37,18 @@
     </nav><!-- /.navbar -->
     <div class="content">
         <div class="row">
-            <div class="col-md-6">
-                <div class="sidenav">
-                  <a href="#">About</a>
-                  <a href="#">Services</a>
-                  <a href="#">Clients</a>
-                  <a href="#">Contact</a>
-                </div>
-            </div> 
-            <div class="col-md-6"> 
-                <div class="row">
-
-                </div>
+            <div class="col-md-3">
+                <div id="chartContainer" style="height: 200px; width:100%;"></div>
             </div>
-
+            <div class="col-md-3">
+                <div id="chartContainer" style="height: 300px; width:100%;"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="chartContainer" style="height: 300px; width:100%;"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="chartContainer" style="height: 300px; width:100%;"></div>
+            </div>
         </div>
     </div>
 </body>
