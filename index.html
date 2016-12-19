@@ -16,10 +16,17 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <!-- Jquery -->
+    <script src="include/jquery-3.1.1.min.js"></script>
+
+    <!-- CanvasJS-->
     <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
+
+    <!-- Custom includes -->
     <script src="custom.js"></script>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -38,17 +45,84 @@
     <div class="content">
         <div class="row">
             <div class="col-md-3">
-                <div id="chartContainer" style="height: 200px; width:100%;"></div>
+                <div class="widget">
+                    <!--<div id="chartContainer" style="height: 200px; width:100%;"></div>-->
+                    <div class="widget-header">Sensors</div>
+                    <div class="widget-body">   
+                        Temperature                     
+                        <div id="chartContainer" style="height: 200px; width:100%; background-color: #333">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-3">
-                <div id="chartContainer" style="height: 300px; width:100%;"></div>
+                <div class="widget">
+                    <div class="widget-header">Navigation</div>
+                    <div class="widget-body">
+                        <p>friction brake</p> 
+
+
+
+<!-- temporary switch testing 
+    TODO: Move the script in a seperate file -->
+
+<label class="switch">
+  <input type="checkbox" id="mySwitch">
+  <div class="slider"></div>
+</label>
+
+<script type="text/javascript">
+
+
+$(document).ready(function () {
+    var ckbox = $('#mySwitch');
+
+    $('input').on('click',function () {
+        if (ckbox.is(':checked')) {
+            alert('You have Checked it');
+        } else {
+            alert('You Un-Checked it');
+        }
+    });
+});
+</script>
+
+
+
+                        <p>magnetic brake</p>
+                        <p>laser</p>
+                        <p>accelerometer</p>
+                    </div>
+                </div>
             </div>
             <div class="col-md-3">
-                <div id="chartContainer" style="height: 300px; width:100%;"></div>
+                <div class="widget">
+                    <!--<div id="chartContainer" style="height: 200px; width:100%;"></div>-->
+                    <div class="widget-header">Pneumatic</div>
+                    <div class="widget-body">
+                        <p></p>
+                        <p>4 Pressure Actuators</p>
+                        <p>1. Levitate/Don't Levitate</p>
+                        <p>2. Release all air pressure from air tanks(emergency prodedure</p>
+                        <p>3. Enable Friction Brake pressure(for enabling strong fiction brake</p>
+                        <p>4. Release Friction Brake pressure</p>
+                        <p>4 Pressure Sensors</p>
+                        <p>1. High Pressure</p>
+                        <p>2. Medium Pressure</p>
+                        <p>3. Low Pressure</p>
+                        <p>4. Friction Brake Pressure</p>
+
+                    </div>
+                </div>
             </div>
             <div class="col-md-3">
-                <div id="chartContainer" style="height: 300px; width:100%;"></div>
+                <div class="widget">
+                    <!--<div id="chartContainer" style="height: 200px; width:100%;"></div>-->
+                    <div class="widget-header">Space holder</div>
+                    <div class="widget-body">body content</div>
+                </div>
             </div>
+
         </div>
     </div>
 </body>

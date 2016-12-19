@@ -1,4 +1,4 @@
-	window.onload = function () {
+window.onload = function () {
 
 		var dps = []; // dataPoints
 
@@ -13,8 +13,8 @@
 		});
 
 		var xVal = 0;
-		var yVal = 100;	
-		var updateInterval = 100;
+		var yVal = 0;	
+		var updateInterval = 1;
 		var dataLength = 500; // number of dataPoints visible at any point
 
 		var updateChart = function (count) {
@@ -22,7 +22,8 @@
 			// count is number of times loop runs to generate random dataPoints.
 			
 			for (var j = 0; j < count; j++) {	
-				yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+				//yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+				yVal = 0;
 				dps.push({
 					x: xVal,
 					y: yVal
@@ -44,4 +45,9 @@
 		// update chart after specified time. 
 		setInterval(function(){updateChart()}, updateInterval); 
 
-	}
+}
+
+
+
+
+
