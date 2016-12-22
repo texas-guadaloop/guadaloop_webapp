@@ -1,53 +1,33 @@
 window.onload = function () {
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-		var dps = []; // dataPoints
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['x', 'temperature'],
+          ['1',  25],
+          ['2',  25],
+          ['3',  26],
+          ['4',  27]
+        ]);
 
-		var chart = new CanvasJS.Chart("chartContainer",{
-			title :{
-				text: "temperature"
-			},			
-			data: [{
-				type: "line",
-				dataPoints: dps 
-			}]
-		});
+        var options = {
+          legend: 'none',
+        	vAxis: {
+        	viewWindow: {
+   				max:'40',
+              	min: '20'
+            },
+            gridlines: {
+            	count: '5'
+            }
+          }
+          
+        };
 
-		var xVal = 0;
-		var yVal = 0;	
-		var updateInterval = 1;
-		var dataLength = 500; // number of dataPoints visible at any point
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 
-		var updateChart = function (count) {
-			count = count || 1;
-			// count is number of times loop runs to generate random dataPoints.
-			
-			for (var j = 0; j < count; j++) {	
-				//yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
-				yVal = 0;
-				dps.push({
-					x: xVal,
-					y: yVal
-				});
-				xVal++;
-			};
-			if (dps.length > dataLength)
-			{
-				dps.shift();				
-			}
-			
-			chart.render();		
+        chart.draw(data, options);
+      }
 
-		};
-
-		// generates first set of dataPoints
-		updateChart(dataLength); 
-
-		// update chart after specified time. 
-		setInterval(function(){updateChart()}, updateInterval); 
-
-}
-
-
-
-
-
+	}

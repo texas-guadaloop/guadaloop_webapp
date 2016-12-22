@@ -19,12 +19,13 @@
     <!-- Jquery -->
     <script src="include/jquery-3.1.1.min.js"></script>
 
-    <!-- CanvasJS-->
-    <script src="http://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!-- Google chart-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
     <!-- Custom includes -->
     <script src="custom.js"></script>
+    <script src="websocket.js"></script>
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -44,27 +45,69 @@
     </nav><!-- /.navbar -->
     <div class="content">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="widget">
                     <!--<div id="chartContainer" style="height: 200px; width:100%;"></div>-->
-                    <div class="widget-header">Sensors</div>
+                    <div class="widget-header">Environment</div>
                     <div class="widget-body">   
-                        Temperature                     
-                        <div id="chartContainer" style="height: 200px; width:100%; background-color: #333">
+                        <h4>Temperature</h4>
+                        <input type="text" id="temperature" value ="0" readonly/>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Levitation control</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>reading at --</p>
+                            </div>
+                        </div>                     
+                        <div id="chart_div"></div>
+                        <h4>Pressure</h4> 
+                        <input type="text" id="pressure" value ="0" readonly/>  
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Levitation control</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>reading at --</p>
+                            </div>
+                        </div>
+                        <h4>Humidity</h4>  
+                        <input type="text" id="humidity" value ="0" readonly/>                           
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Levitation control</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>reading at --</p>
+                            </div>
+                        </div>
+                        <h4>Accelerometor</h4>    
+                        <input type="text" id="accelerometor" value ="0" readonly/>                         
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Levitation control</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>reading at --</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="widget">
                     <div class="widget-header">Navigation</div>
                     <div class="widget-body">
                         <h4>Friction brake</h4>                             
                         <div class="row">
-                            <div class="col-md-6">Levitation control</div>
-                            <div class="col-md-6">
-                                <input type="checkbox" id="s1" />
-                                <label class="slider" for="s1"></label>
+                            <div class="col-md-8">
+                                <p>Levitation control</p>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="switch-wrapper">
+                                    <input name ="levitation" type="checkbox" id="s1" />
+                                    <label class="slider" for="s1"></label>
+                                </div>
                             </div>
                         </div>
                         <!-- temporary switch testing 
@@ -73,9 +116,10 @@
                         $(document).ready(function () {
                             var ckbox = $('#mySwitch');
 
-                            $('input').on('click',function () {
+                            $('input[name=levitation]').on('click',function () {
                                 if (ckbox.is(':checked')) {
                                     alert('You have Checked it');
+                                    connection.send("levitation_on");
                                 } else {
                                     alert('You Un-Checked it');
                                 }
@@ -84,22 +128,66 @@
                         </script>
                         <h4>Magnetic brake</h4>                             
                         <div class="row">
-                            <div class="col-md-6">Levitation control</div>
-                            <div class="col-md-6">
-                                <input type="checkbox" id="s2" />
-                                <label class="slider" for="s2"></label>
+                            <div class="col-md-8">
+                                <p>Levitation control</p>
                             </div>
-                        </div>                        
+                            <div class="col-md-4">
+                                <div class="switch-wrapper">
+                                    <input type="checkbox" id="s2" />
+                                    <label class="slider" for="s2"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Arduino Reset</h4>                             
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>resetting</p>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="switch-wrapper">
+                                    <input type="checkbox" id="s2" />
+                                    <label class="slider" for="s2"></label>
+                                </div>
+                            </div>
+                        </div>                           
                         <hr />
-                        <p>laser</p>
-                        <p>accelerometer</p>
+                        <h4>Laser</h4>                             
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">60%
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <!--<input type="text" id="laser" value="0" readonly />-->
+                            </div>
+                        </div>       
+                        <h4>Accelerometor</h4>                             
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Levitation control</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>reading at --</p>
+                            </div>
+                        </div>
+                        <h4>Pod State</h4>                             
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Levitation control</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p>reading at --</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="widget">
                     <!--<div id="chartContainer" style="height: 200px; width:100%;"></div>-->
-                    <div class="widget-header">Pneumatic</div>
+                    <div class="widget-header">Pneumatics</div>
                     <div class="widget-body">
                         <p></p>
                         <p>4 Pressure Actuators</p>
@@ -116,14 +204,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="widget">
-                    <!--<div id="chartContainer" style="height: 200px; width:100%;"></div>-->
-                    <div class="widget-header">Space holder</div>
-                    <div class="widget-body">body content</div>
-                </div>
-            </div>
-
         </div>
     </div>
 </body>
