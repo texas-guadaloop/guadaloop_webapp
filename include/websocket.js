@@ -56,5 +56,13 @@ window.addEventListener("load", function () {
 	}
 
 
+	conn1_accel = new WebSocket('ws://192.168.2.27:8001')
+        conn1_accel.onopen = function() {
+          console.log("conn1_accel opened")
+          conn1_accel.send("accel")
+        }
+        conn1_accel.onmessage = function (event) {
+          document.getElementById("accel").value = event.data;
+        }
 
 })
