@@ -40,8 +40,8 @@ window.addEventListener("load", function () {
 		document.getElementById("laser").value = event.data;
         }
 
-/*
-	conn1_temperature = new WebSocket('ws://localhost:8001')
+
+	conn1_temperature = new WebSocket('ws://192.168.1.133:8001')
 	conn1_temperature.onopen = function () {
 		console.log("conn1_temperature opened")
 		conn1_temperature.send("temperature")	
@@ -57,7 +57,7 @@ window.addEventListener("load", function () {
 	}
 
 
-
+/*
 	conn1_pressure = new WebSocket('ws://localhost:8001')
 	conn1_pressure.onopen = function () {
 		console.log("conn1_pressure opened")
