@@ -36,7 +36,7 @@
             <!-- logo -->
             <div class="navbar-header">
               <a class="navbar-brand" href="#">
-                <img id="logo" alt="Brand" src="../logo.png">
+                <img id="logo" alt="Brand" src="/include/image/logo.png">
               </a>
               <span id="logo-text">guadaloop</span>
             </div>
@@ -157,10 +157,11 @@
 
                             $('input[name=levitation]').on('click',function () {
                                 if (ckbox.is(':checked')) {
-                                    alert('You have Checked it');
-                                    connection.send("levitation_on");
+                                    conn2.send("stop");
+                                    //alert('You have Checked it');
                                 } else {
-                                    alert('You Un-Checked it');
+                                    //conn2.send("stop");
+                                    //alert('You Un-Checked it');
                                 }
                             });
                         });
