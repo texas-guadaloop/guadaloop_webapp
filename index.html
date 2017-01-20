@@ -8,24 +8,24 @@
       href="/include/image/logo.png">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="/include/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="include/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="/include/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="include/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="/include/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="include/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 
     <!-- Jquery -->
-    <script src="/include/jquery-3.1.1.min.js"></script>
+    <script src="include/jquery-3.1.1.min.js"></script>
 
     <!-- Plotly.js -->
-    <script type="text/javascript" src="/include/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="include/plotly-latest.min.js"></script>
 
 
     <!-- Custom includes -->
-    <script src="/include/websocket.js"></script>
-    <link rel="stylesheet" href="/include/style.css">
+    <script src="include/websocket.js"></script>
+    <link rel="stylesheet" href="include/style.css">
 
 </head>
 
@@ -158,9 +158,10 @@
                             $('input[name=levitation]').on('click',function () {
                                 if (ckbox.is(':checked')) {
                                     alert('You have Checked it');
-                                    connection.send("levitation_on");
+                                    conn2.send("stop");
                                 } else {
                                     alert('You Un-Checked it');
+                                    conn2.send("stop");
                                 }
                             });
                         });
