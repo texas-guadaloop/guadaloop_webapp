@@ -12,10 +12,22 @@ var conn1_tiltHeading
 var conn1_gyro
 var conn1_compass
 var conn1_fusionPose
+var conn2
+
 
 window.addEventListener("load", function () {
+	conn2 = new WebSocket('ws://192.168.1.134:8002');
+        conn2.onopen = function() {
+            console.log("conn0 connected")
+        }
+        conn2.onmessage = function (event) {
+        	console.log(event.data);
+              
+		document.getElementById("laser").value = event.data;
+        }
 
-	conn1_temperature = new WebSocket('ws://192.168.2.27:8001')
+/*
+	conn1_temperature = new WebSocket('ws://localhost:8001')
 	conn1_temperature.onopen = function () {
 		console.log("conn1_temperature opened")
 		conn1_temperature.send("temperature")	
@@ -32,7 +44,7 @@ window.addEventListener("load", function () {
 
 
 
-	conn1_pressure = new WebSocket('ws://192.168.2.27:8001')
+	conn1_pressure = new WebSocket('ws://localhost:8001')
 	conn1_pressure.onopen = function () {
 		console.log("conn1_pressure opened")
 		conn1_pressure.send("pressure")	
@@ -49,7 +61,7 @@ window.addEventListener("load", function () {
     
 
 
-	conn1_humidity = new WebSocket('ws://192.168.2.27:8001')
+	conn1_humidity = new WebSocket('ws://localhost:8001')
 	conn1_humidity.onopen = function() {
 		console.log("conn1_humidity opened")
 		conn1_humidity.send("humidity")
@@ -64,8 +76,8 @@ window.addEventListener("load", function () {
 		console.error("conn1_humidity error")
 	}
 
-
-	conn1_accel = new WebSocket('ws://192.168.2.27:8001')
+*/
+	conn1_accel = new WebSocket('ws://localhost:8001')
     	conn1_accel.onopen = function() {
           console.log("conn1_accel opened")
           conn1_accel.send("accel")
@@ -74,9 +86,9 @@ window.addEventListener("load", function () {
           document.getElementById("accel").value = event.data;
         }
 
+/*
 
-
-	conn1_tiltHeading = new WebSocket('ws://192.168.2.27:8001')
+	conn1_tiltHeading = new WebSocket('ws://localhost:8001')
     	conn1_tiltHeading.onopen = function() {
           console.log("conn1_tiltHeading opened")
           conn1_tiltHeading.send("tiltHeading")
@@ -87,7 +99,7 @@ window.addEventListener("load", function () {
 
 
 
-	conn1_gyro = new WebSocket('ws://192.168.2.27:8001')
+	conn1_gyro = new WebSocket('ws://localhost:8001')
     	conn1_gyro.onopen = function() {
           console.log("conn1_gyro opened")
           conn1_gyro.send("gyro")
@@ -97,7 +109,7 @@ window.addEventListener("load", function () {
         }
 
 
-    conn1_compass = new WebSocket('ws://192.168.2.27:8001')
+    conn1_compass = new WebSocket('ws://localhost:8001')
     	conn1_compass.onopen = function() {
           console.log("conn1_compass opened")
           conn1_compass.send("compass")
@@ -107,7 +119,7 @@ window.addEventListener("load", function () {
         }
 
 
-    conn1_fusionPose = new WebSocket('ws://192.168.2.27:8001')
+    conn1_fusionPose = new WebSocket('ws://localhost:8001')
     	conn1_fusionPose.onopen = function() {
           console.log("conn1_fusionPose opened")
           conn1_fusionPose.send("fusionPose")
@@ -115,6 +127,6 @@ window.addEventListener("load", function () {
         conn1_fusionPose.onmessage = function (event) {
           document.getElementById("fusionPose").value = event.data;
         }
-
+*/
 
 })
