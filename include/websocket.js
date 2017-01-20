@@ -19,7 +19,7 @@ window.addEventListener("load", function () {
 	conn2 = new WebSocket('ws://192.168.1.134:8002');
         conn2.onopen = function() {
             console.log("conn2 connected")
-                        $(document).ready(function () {
+                $(document).ready(function () {
                             var ckbox = $('#mySwitch');
 
                             $('input[name=levitation]').on('click',function () {
