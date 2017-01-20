@@ -18,7 +18,21 @@ var conn2
 window.addEventListener("load", function () {
 	conn2 = new WebSocket('ws://192.168.1.134:8002');
         conn2.onopen = function() {
-            console.log("conn0 connected")
+            console.log("conn2 connected")
+                        $(document).ready(function () {
+                            var ckbox = $('#mySwitch');
+
+                            $('input[name=levitation]').on('click',function () {
+                                if (ckbox.is(':checked')) {
+                                    //alert('You have Checked it');
+                                    conn2.send("stop");
+                                }
+                                //} else {
+                                    //alert('You Un-Checked it');
+                                    //conn2.send("stop");
+                                //}
+                            });
+                        });
         }
         conn2.onmessage = function (event) {
         	console.log(event.data);
