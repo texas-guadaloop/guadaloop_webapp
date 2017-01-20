@@ -27,10 +27,10 @@ window.addEventListener("load", function () {
                                     //alert('You have Checked it');
                                     conn2.send("stop");
                                 }
-                                //} else {
+                                } else {
                                     //alert('You Un-Checked it');
                                     //conn2.send("stop");
-                                //}
+                                }
                             });
                         });
         }
