@@ -1,8 +1,17 @@
+/*Description of the heading of connection
+conn1 is connection from the pi with sense-hat
+coon2 is 
+conn3 is
+*/
 
 var conn1_temperature
 var conn1_pressure
 var conn1_humidity
-var conn1_accelerometer
+var conn1_accel
+var conn1_tiltHeading
+var conn1_gyro
+var conn1_compass
+var conn1_fusionPose
 
 window.addEventListener("load", function () {
 
@@ -57,12 +66,55 @@ window.addEventListener("load", function () {
 
 
 	conn1_accel = new WebSocket('ws://192.168.2.27:8001')
-        conn1_accel.onopen = function() {
+    	conn1_accel.onopen = function() {
           console.log("conn1_accel opened")
           conn1_accel.send("accel")
         }
         conn1_accel.onmessage = function (event) {
           document.getElementById("accel").value = event.data;
         }
+
+
+
+	conn1_tiltHeading = new WebSocket('ws://192.168.2.27:8001')
+    	conn1_tiltHeading.onopen = function() {
+          console.log("conn1_tiltHeading opened")
+          conn1_tiltHeading.send("tiltHeading")
+        }
+        conn1_tiltHeading.onmessage = function (event) {
+          document.getElementById("tiltHeading").value = event.data;
+        }
+
+
+
+	conn1_gyro = new WebSocket('ws://192.168.2.27:8001')
+    	conn1_gyro.onopen = function() {
+          console.log("conn1_gyro opened")
+          conn1_gyro.send("gyro")
+        }
+        conn1_gyro.onmessage = function (event) {
+          document.getElementById("gyro").value = event.data;
+        }
+
+
+    conn1_compass = new WebSocket('ws://192.168.2.27:8001')
+    	conn1_compass.onopen = function() {
+          console.log("conn1_compass opened")
+          conn1_compass.send("compass")
+        }
+        conn1_compass.onmessage = function (event) {
+          document.getElementById("compass").value = event.data;
+        }
+
+
+    conn1_fusionPose = new WebSocket('ws://192.168.2.27:8001')
+    	conn1_fusionPose.onopen = function() {
+          console.log("conn1_fusionPose opened")
+          conn1_fusionPose.send("fusionPose")
+        }
+        conn1_fusionPose.onmessage = function (event) {
+          document.getElementById("fusionPose").value = event.data;
+        }
+
 
 })
