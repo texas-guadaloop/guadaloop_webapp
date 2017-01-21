@@ -368,11 +368,11 @@
                                             $('input[name=2p2]').on('click',function () {
                                                 if (ckbox.is(':checked')) {
                                                     alert('2p2');
-                                                    conn2.send("stop");
+                                                    conn3.send("2p2_o");
                                                 }
                                                 else {
                                                     //alert('uncheck it?');
-                                                    conn2.send("go");
+                                                    conn3.send("2p2_c");
                                                 }
                                             });
                                         });

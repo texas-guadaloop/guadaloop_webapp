@@ -16,6 +16,7 @@ var conn2
 var conn3
 
 window.addEventListener("load", function () {
+  /*
 	conn2 = new WebSocket('ws://192.168.1.134:8002');
         conn2.onopen = function() {
             console.log("conn2 connected")
@@ -55,6 +56,7 @@ window.addEventListener("load", function () {
 	conn1_temperature.onerror = function () {
 		console.error("conn1_temperature error")
 	}
+  */
 
 
 /*
@@ -91,6 +93,9 @@ window.addEventListener("load", function () {
 	}
 
 */
+
+
+/*
 	conn1_accel = new WebSocket('ws://localhost:8001')
     	conn1_accel.onopen = function() {
           console.log("conn1_accel opened")
@@ -99,6 +104,8 @@ window.addEventListener("load", function () {
         conn1_accel.onmessage = function (event) {
           document.getElementById("accel").value = event.data;
         }
+
+*/
 
 /*
 
