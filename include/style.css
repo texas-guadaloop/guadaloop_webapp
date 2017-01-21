@@ -89,7 +89,7 @@
 
 .widget h4 {
     font-weight: bolder;
-    margin-top: 30px
+    margin-top: 0px;
 }
 
 .widget p {
@@ -102,6 +102,9 @@
     background-color: grey;
 }
 
+.elem-wrapper {
+  margin-top: 30px;
+}
 
 
 /* switch */
