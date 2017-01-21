@@ -46,6 +46,8 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="widget">
+
+
                     <!--<div id="chartContainer" style="height: 200px; width:100%;"></div>-->
                     <div class="widget-header">Environment</div>
                     <div class="widget-body">   
@@ -91,7 +93,7 @@
                             </div>
                         </div>
                         <h4>Tilt Heading</h4>    
-                        <input type="text" id="tiltHeading" value ="0" readonly/>                         
+                        <input type="text" id="tiltHeading" value ="0" readonly/>        
                         <div class="row">
                             <div class="col-md-8">
                                 <p>Levitation control</p>
@@ -104,8 +106,9 @@
                             <h4>Gyro</h4>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label>x</label>
-                                    <input type="text" id="gyro_x" value ="0" readonly/>
+                                    <div class="block"><label>x</label>
+
+                                    <input type="text" id="gyro_x" value ="0" readonly/></div>
                                 </div>
                                 <div class="col-md-4">
                                     <label>y</label>
@@ -159,8 +162,8 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="switch-wrapper">
-                                    <input name ="levitation" type="checkbox" id="s1" />
-                                    <label class="slider" for="s1"></label>
+                                    <input name ="friction-brake" type="checkbox" id="s_frictionBrake" />
+                                    <label class="slider" for="s_frictionBrake"></label>
                                 </div>
                             </div>
                         </div>
@@ -168,16 +171,16 @@
                             TODO: Move the script in a seperate file -->
                         <script type="text/javascript">
                         $(document).ready(function () {
-                            var ckbox = $('#mySwitch');
+                            var ckbox = $('#s_frictionBrake');
 
-                            $('input[name=levitation]').on('click',function () {
+                            $('input[name=friction-brake]').on('click',function () {
                                 if (ckbox.is(':checked')) {
-                                    //alert('You have Checked it');
+                                    alert('Do you want to activate the Friction Brake?');
                                     conn2.send("stop");
                                 }
                                 else {
-                                    //alert('You Un-Checked it');
-                                    conn2.send("stop");
+                                    //alert('uncheck it?');
+                                    conn2.send("go");
                                 }
                             });
                         });
@@ -236,6 +239,7 @@
                     <!--<div id="chartContainer" style="height: 200px; width:100%;"></div>-->
                     <div class="widget-header">Pneumatics</div>
                     <div class="widget-body">
+
                         <p></p>
                         <p>4 Pressure Actuators</p>
                         <p>1. Levitate/Don't Levitate</p>

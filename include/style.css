@@ -87,10 +87,6 @@
     padding: 10px 10px 10px 10px;
 }
 
-label{
-    display: inline-block;
-    text-align: right;
-}
 .widget h4 {
     font-weight: bolder;
     margin-top: 30px
@@ -105,10 +101,6 @@ label{
     border-width: 2px;
     background-color: grey;
 }
-
-
-
-
 
 
 
