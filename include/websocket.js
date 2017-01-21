@@ -13,7 +13,7 @@ var conn1_gyro
 var conn1_compass
 var conn1_fusionPose
 var conn2
-
+var conn3
 
 window.addEventListener("load", function () {
 	conn2 = new WebSocket('ws://192.168.1.134:8002');
@@ -142,5 +142,13 @@ window.addEventListener("load", function () {
           document.getElementById("fusionPose").value = event.data;
         }
 */
+
+    conn3 = new WebSocket('ws://localhost:8001')
+      conn3.onopen = function() {
+          console.log("conn3 opened")
+      }
+      conn3.onmessage = function (event) {
+        //2p1_o, 2p1_c, 2p2_o, 2p2_c
+      }
 
 })
