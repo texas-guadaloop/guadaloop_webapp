@@ -63,8 +63,8 @@
                                 <div class="col-md-8">
                                     <p>Sense-hat</p>
                                 </div>
-                                <div class="col-md-4">
-                                    <p>reading at --</p>
+                                <div class="col-md-4 align-right">
+                                    <p>C°</p>
                                 </div>
                             </div> 
                         </div>
@@ -397,8 +397,29 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="switch-wrapper">
-                                        <input name ="3p1" type="checkbox" id="s_3p1" />
-                                        <label class="slider" for="s_3p1"></label>
+                                        <div class="three_way_switch">
+                                            <div class="btn-group" role="group" aria-label="...">
+                                              <button id="3p1_port2" name="three_way" type="button" class="btn btn-sm btn-default">port2</button>
+                                              <button id="close" name="three_way" type="button" class="btn btn-sm btn-default warning selected">close</button>
+                                              <button id="3p1_port3" name="three_way" type="button" class="btn btn-sm btn-default">port3</button>
+                                                <script>
+                                                    $('button[name=three_way]').click(function(){
+                                                        $('button[name=three_way]').removeClass("selected");
+                                                        $(this).addClass('selected');
+
+                                                        if(this.id == "3p1_port2") {
+                                                            alert("3p1_port2");
+                                                        }
+                                                        else if(this.id =="3p1_port3"){
+                                                            alert("3p2_port3")
+                                                        }
+                                                        else {
+                                                            alert("close")
+                                                        }
+                                                    });      
+                                                </script>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -419,8 +440,19 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="switch-wrapper">
-                                        <input name ="3p2" type="checkbox" id="s_3p2" />
-                                        <label class="slider" for="s_3p2"></label>
+                                        <div align="right" class="three_way_switch">
+                                            <div class="btn-group" role="group" aria-label="...">
+                                              <button onclick="3p1_port2()" name="three_way" type="button" class="btn btn-sm btn-default">port2</button>
+                                              <button onclick="close()" name="three_way" type="button" class="btn btn-sm btn-default warning selected">close</button>
+                                              <button onclick="3p1_port3()" name="three_way" type="button" class="btn btn-sm btn-default">port3</button>
+                                                <script>
+                                                    $('button[name=three_way]').click(function(){
+                                                        $('button[name=three_way]').removeClass("selected");
+                                                        $(this).addClass('selected');
+                                                    });      
+                                                </script>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -9,9 +9,14 @@
 
     input[type="text"] {
      width: 100%; 
+     text-align: right;
      box-sizing: border-box;
      -webkit-box-sizing:border-box;
      -moz-box-sizing: border-box;
+    }
+
+    .align-right {
+      text-align: right;
     }
 
     #logo {
@@ -97,9 +102,9 @@
 }
 
 .widget input[type="text"] {
-    border: solid white;
+    border: solid #7C746A;
     border-width: 2px;
-    background-color: grey;
+    background-color: #333;
 }
 
 .elem-wrapper {
@@ -109,10 +114,15 @@
 
 /* switch */
 
+.switch-wrapper {
+  text-align: right;
+}
+
 .switch-wrapper input {
   position: absolute;
   left: -9999px;
 }
+
 
 .slider, .slider2 {
   position: relative;
@@ -198,6 +208,26 @@ input:checked + .slider2::before {
 
 
 
+
+
+.three_way_switch .selected {
+    background-color: #0066CC;
+    color: white;
+    border-color: darkblue;
+    background-image: -moz-linear-gradient(rgba(0,0,0,.2), rgba(255,255,255,.2));
+    background-image: -webkit-linear-gradient(rgba(0,0,0,.2), rgba(255,255,255,.2));
+    background-image: linear-gradient(rgba(0,0,0,.2), rgba(255,255,255,.2));
+    box-shadow: 1px 1px 1px rgba(0,0,0,.2) inset;
+}
+.warning.selected {
+    background-color: red;
+    border-color: darkred;
+}
+.three_way_switch button[type="radio"] {
+   position: absolute;
+   top: -9999px;
+   left: -9999px;
+}
 
 
 
