@@ -150,7 +150,7 @@ window.addEventListener("load", function () {
         }
 */
 
-    conn3 = new WebSocket('ws://localhost:8001')
+    conn3 = new WebSocket('ws://192.168.1.140:8001')
       conn3.onopen = function() {
           console.log("conn3 opened")
       }
